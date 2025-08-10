@@ -1,3 +1,13 @@
+/*
+
+Name: Malladi Bala Satish
+Roll No: 325103311L03
+Branch / Year / Sem: IT / 2nd year / III sem
+Academic Year: 2025 - 2026
+
+*/
+
+
 #include <stdio.h>
 
 int main() {
