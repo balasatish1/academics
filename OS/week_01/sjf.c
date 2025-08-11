@@ -1,4 +1,13 @@
+/*
 
+                    OS LAB  week-01(shortest job first)
+
+Name: Malladi Bala Satish
+Roll No: 325103311L03
+Branch / Year / Sem: IT / II year / III sem
+Academic Year: 2025 - 2026
+
+*/
 #include <stdio.h>
 
 void swap(int arr_1[], int arr_2[], int index) {
