@@ -1,62 +1,71 @@
+
 #include <stdio.h>
-#include <conio.h>
-#include <dos.h>
 
-void main() {
-    int n, b[10], w[10], i, j, h, t, tt;
-    int stime[10], a[10];
-    float avg = 0;
-    clrscr();
+void swap(int arr_1[], int arr_2[], int index) {
+  int temp = arr_1[index];
+  arr_1[index] = arr_1[index + 1];
+  arr_1[index + 1] = temp;
 
-    printf("\n\tJOB SCHEDULING ALGORITHM[SJF]");
-    printf("\n\t*****************************************************\n");
-    printf("\nEnter howmany jobs:");
-    scanf("%d", &n);
+  temp = arr_2[index];
+  arr_2[index] = arr_2[index + 1];
+  arr_2[index + 1] = temp;
+}
 
-    printf("\nEnter burst time for corresponding job\n");
-    for (i = 1; i <= n; i++) {
-        printf("\nProcess %d:", i);
-        scanf("%d", &b[i]);
-        a[i] = i;
+int main() {
+  int N = 0;
+  printf("Enter number of jobs: ");
+  scanf("%d", &N);
+
+  int burst_time[N];
+  int process_number[N];
+  int waiting_time[N];
+  float total_waiting_time = 0.0;
+
+  printf("Enter burst time for corresponding jobs\n");
+  for (int i = 0; i < N; i++) {
+    printf("Process - %d: ", i);
+    scanf("%d", &burst_time[i]);
+    process_number[i] = i;
+  }
+
+  for (int i = 0; i < N - 1; i++) {
+    int is_swapped = 0;
+    for (int j = 0; j < N - 1 - i; j++) {
+      if (burst_time[j] > burst_time[j + 1]) {
+        swap(burst_time, process_number, j);
+        is_swapped = 1;
+      }
     }
+    if (!is_swapped) break;
+  }
 
-    for (i = 1; i <= n; i++)
-        for (j = i; j <= n; j++)
-            if (b[i] > b[j]) {
-                t = b[i];
-                tt = a[i];
-                b[i] = b[j];
-                a[i] = a[j];
-                b[j] = t;
-                a[j] = tt;
-            }
+  waiting_time[0] = 0;
+  for (int i = 1; i < N; i++) {
+    waiting_time[i] = waiting_time[i - 1] + burst_time[i - 1];
+    total_waiting_time += waiting_time[i];
+  }
 
-    w[1] = 0;
-    printf("\nprocess %d waiting time is 0", a[1]);
-    for (i = 2; i <= n; i++) {
-        w[i] = b[i - 1] + w[i - 1];
-        printf("\nProcess %d waiting time: %d", a[i], w[i]);
-        avg += w[i];
-    }
+  printf("\n");
 
-    printf("\ntotal waiting time:%f", avg);
-    printf("\n\nthe average waiting time is:%f\n", avg / n);
+  for (int i = 0; i < N; i++) {
+    printf("waiting time of process %d : %d\n", process_number[i], waiting_time[i]);
+  }
 
-    printf("\nGaunt Chart\n***************************************\n\n\t");
-    h = 22;
-    for (i = 1; i <= n; i++) {
-        printf("%d", b[i]);
-        for (j = 1; j <= b[i]; j++)
-            printf("%c", h);
-    }
+  printf("\ntotal waiting time: %f\n", total_waiting_time);
+  printf("average waiting time: %f\n", total_waiting_time / N);
 
-    printf("\n\t");
-    for (i = 1; i <= n; i++) {
-        printf("%d", w[i]);
-        for (j = 1; j <= w[i]; j++)
-            printf("%c", h);
-        delay(1000);
-    }
+  printf("\nGantt Chart\n\n");
 
-    getch();
+  for (int i = 0; i < N; i++) {
+    printf("|P%d\t", process_number[i]);
+  }
+
+  printf("|\n-----------------------------------------\n");
+
+  for (int i = 0; i < N; i++) {
+    printf("%d\t", waiting_time[i]);
+  }
+  printf("%d\t", (int)total_waiting_time);
+
+  return 0;
 }
