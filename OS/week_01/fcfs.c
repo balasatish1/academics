@@ -1,6 +1,6 @@
 /*
 
-                    OS LAB - week-01(first come first serve)
+                    OS LAB  week-01(first come first serve)
 
 Name: Malladi Bala Satish
 Roll No: 325103311L03
