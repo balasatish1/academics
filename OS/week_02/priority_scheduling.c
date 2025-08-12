@@ -26,6 +26,7 @@ int main() {
     printf("Enter arrival times: ");
     for (i = 0; i < n; i++)
         scanf("%d", &arrival_time[i]);
+        
     printf("Enter burst times: ");
     for (i = 0; i < n; i++)
         scanf("%d", &burst_time[i]);
