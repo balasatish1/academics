@@ -25,19 +25,14 @@ int main() {
 
     printf("Enter arrival times: ");
     for (i = 0; i < n; i++)
-        scanf("%d", &at[i]);2
-P3      2       2       3       2       5
-P1      3       0       1       5       6
-
+        scanf("%d", &at[i]);
     printf("Enter burst times: ");
     for (i = 0; i < n; i++)
         scanf("%d", &bt[i]);
 
     for (i = 0; i < n - 1; i++) {
         for (j = 0; j < n - i - 1; j++) {
-            if (priority[j] > priority[j + 1]) {2
-P3      2       2       3       2       5
-P1      3       0       1       5       6
+            if (priority[j] > priority[j + 1]) {
                 temp = priority[j];
                 priority[j] = priority[j + 1];
                 priority[j + 1] = temp;
@@ -48,9 +43,7 @@ P1      3       0       1       5       6
 
                 temp = bt[j];
                 bt[j] = bt[j + 1];
-                bt[j + 1] = temp;2
-P3      2       2       3       2       5
-P1      3       0       1       5       6
+                bt[j + 1] = temp;
 
                 temp = p[j];
                 p[j] = p[j + 1];
@@ -61,10 +54,7 @@ P1      3       0       1       5       6
 
     wt[0] = 0;
     tat[0] = bt[0];
-    ct[0] = at[0] + tat[0];2
-P3      2       2       3       2       5
-P1      3       0       1       5       6
-
+    ct[0] = at[0] + tat[0];
     for (i = 1; i < n; i++) {
         wt[i] = wt[i - 1] + bt[i - 1];
         tat[i] = wt[i] + bt[i];
@@ -77,9 +67,7 @@ P1      3       0       1       5       6
         total_waiting_time += wt[i];
         total_TAT += tat[i];
     }
-    2
-P3      2       2       3       2       5
-P1      3       0       1       5       6
+   
     printf("\nTotal Waiting Time: %.2f", total_waiting_time);
     printf("\nTotal Turn Around Time: %.2f", total_TAT);
 
