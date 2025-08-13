@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 class Box {
 
@@ -21,7 +22,18 @@ public class TesterOne {
 
   public static void main(String args[]) {
 
-    Box box = new Box(10, 5, 7);
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Enter the width: ");
+    double width = sc.nextDouble();
+
+    System.out.print("Enter the height: ");
+    double height = sc.nextDouble();
+    
+    System.out.print("Enter the depth: ");
+    double depth = sc.nextDouble();
+
+
+    Box box = new Box(width, height, depth);
     System.out.println("Volume: " + box.getVolume());
   }
 }
