@@ -1,9 +1,18 @@
+/*
+              Week - 03 (Multilevel scheduling)
+
+  Name: Malladi Bala Satish
+  Roll: 325103311L03
+*/
+
+
+
 #include <stdio.h>
 
 int main() {
 
-  int process_id[20], burst_time[20], user_type[20], waiting_time[20], tat[20];
-  int n;
+  int process_id[20], burst_time[20], user_type[20];
+  int waiting_time[20], tat[20], n;
   float tot_waiting_time, tot_tat;
 
   printf("Enter the number of process: ");
@@ -16,7 +25,6 @@ int main() {
     printf("System/User process (0/1): ");
     scanf("%d", &user_type[i]);
   }
-
 
   for (int i = 0; i < n - 1; i++) {
     for (int k = i + 1; k < n; k++) {
@@ -51,7 +59,12 @@ int main() {
   printf("\n Process\t System/User\t Burst Time\t Waiting Time\t Turnaround Time\n");
 
   for (int i = 0; i < n; i++) {
-    printf("%d\t%d\t\t%d\t\t%d\t\t%d\n", process_id[i], user_type[i], burst_time[i], waiting_time[i], tat[i]);
+    printf("\t%d\t\t%d\t\t%d\t\t%d\t\t%d\n", process_id[i],
+      user_type[i],
+      burst_time[i],
+      waiting_time[i],
+      tat[i]
+    );
   }
 
   printf("\n Average waiting Time: %.2f", tot_waiting_time / n);
