@@ -50,7 +50,7 @@ int main() {
 
   printf("\n Process\t System/User\t Burst Time\t Waiting Time\t Turnaround Time\n");
 
-  for (i = 0; i< n; i++) {
+  for (i = 0; i < n; i++) {
     printf("%d\t%d\t\t%d\t\t%d\t\t%d\n", p[i], su[i], bt[i], wt[i], tat[i]);
   }
 
