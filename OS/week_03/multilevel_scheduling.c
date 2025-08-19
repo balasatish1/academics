@@ -2,60 +2,60 @@
 
 int main() {
 
-  int p[20], bt[20], su[20], wt[20], tat[20];
-  int i, k, n, temp;
-  float wtavg, tatavg;
+  int process_id[20], burst_time[20], user_type[20], waiting_time[20], tat[20];
+  int n;
+  float tot_waiting_time, tot_tat;
 
   printf("Enter the number of process: ");
   scanf("%d", &n);
 
-  for (i = 0; i < n; i++) {
-    p[i] = i + 1;
+  for (int i = 0; i < n; i++) {
+    process_id[i] = i + 1;
     printf("Enter the burst time of process %d: ", i + 1);
-    scanf("%d", &bt[i]);
+    scanf("%d", &burst_time[i]);
     printf("System/User process (0/1): ");
-    scanf("%d", &su[i]);
+    scanf("%d", &user_type[i]);
   }
 
 
-  for (i = 0; i < n - 1; i++) {
-    for (k = i + 1; k < n; k++) {
-      if (su[i] > su[k]) {
-        temp = p[i];
-        p[i] = p[k];
-        p[k] = temp;
+  for (int i = 0; i < n - 1; i++) {
+    for (int k = i + 1; k < n; k++) {
+      if (user_type[i] > user_type[k]) {
+        int temp = process_id[i];
+        process_id[i] = process_id[k];
+        process_id[k] = temp;
 
-        temp = bt[i];
-        bt[i] = bt[k];
-        bt[k] = temp;
+        temp = burst_time[i];
+        burst_time[i] = burst_time[k];
+        burst_time[k] = temp;
 
-        temp = su[i];
-        su[i] = su[k];
-        su[k] = temp;
+        temp = user_type[i];
+        user_type[i] = user_type[k];
+        user_type[k] = temp;
       }
     }
   }
 
-  wt[0] = 0;
-  tat[0] = bt[0];
-  wtavg = 0;
-  tatavg = bt[0];
+  waiting_time[0] = 0;
+  tat[0] = burst_time[0];
+  tot_waiting_time = 0;
+  tot_tat = burst_time[0];
 
-  for (i = 1; i < n; i++) {
-    wt[i] = wt[i - 1] + bt[i - 1];
-    tat[i] = wt[i] + bt[i];
-    wtavg += wt[i];
-    tatavg += tat[i];
+  for (int i = 1; i < n; i++) {
+    waiting_time[i] = waiting_time[i - 1] + burst_time[i - 1];
+    tat[i] = waiting_time[i] + burst_time[i];
+    tot_waiting_time += waiting_time[i];
+    tot_tat += tat[i];
   }
 
   printf("\n Process\t System/User\t Burst Time\t Waiting Time\t Turnaround Time\n");
 
-  for (i = 0; i < n; i++) {
-    printf("%d\t%d\t\t%d\t\t%d\t\t%d\n", p[i], su[i], bt[i], wt[i], tat[i]);
+  for (int i = 0; i < n; i++) {
+    printf("%d\t%d\t\t%d\t\t%d\t\t%d\n", process_id[i], user_type[i], burst_time[i], waiting_time[i], tat[i]);
   }
 
-  printf("\n Average waiting Time: %.2f", wtavg / n);
-  printf("\n Average Turnaround Time: %.2f\n", tatavg / n);
+  printf("\n Average waiting Time: %.2f", tot_waiting_time / n);
+  printf("\n Average Turnaround Time: %.2f\n", tot_tat / n);
 
   return 0;
 }
