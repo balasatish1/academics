@@ -13,5 +13,6 @@ public class AreaByScanner {
     
     System.out.println("Area : " + area);
     System.out.println("Perimeter : " + perimeter);
+    sc.close();
   }
 }

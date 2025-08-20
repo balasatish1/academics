@@ -9,5 +9,7 @@ public class ReadNameByScanner {
     String name = sc.nextLine();
     
     System.out.println("Name : " + name);
+
+    sc.close();
   }
 }
