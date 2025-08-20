@@ -1,9 +1,7 @@
-
 public class OvelsAndConsonants {
   public static void main(String args[]) {
 
     String[] stringArr = { "Apple", "Ball", "code", "Java", "arun", "nithin", "bala"};
-    int[][] ovelsAndConsonents = new int[stringArr.length][2];
 
     for (int i = 0; i < stringArr.length; i++) {
       int ovelCount = 0;
@@ -23,18 +21,13 @@ public class OvelsAndConsonants {
           consonantCount++;
       }
 
-      ovelsAndConsonents[i][0] = ovelCount;
-      ovelsAndConsonents[i][1] = consonantCount;
-    }
-
-    for (int i = 0; i < stringArr.length; i++) {
       System.out.println(
-        stringArr[i] + " => Ovels: " +
-        ovelsAndConsonents[i][0] +
+        stringArr[i] +
+        " => Ovels: " +
+        ovelCount +
         " Consonants: " +
-        ovelsAndConsonents[i][1]
+        consonantCount
       );
     }
-
   }
 }
