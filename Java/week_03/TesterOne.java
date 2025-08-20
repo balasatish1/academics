@@ -35,5 +35,7 @@ public class TesterOne {
 
     Box box = new Box(width, height, depth);
     System.out.println("Volume: " + box.getVolume());
+
+    sc.close();
   }
 }

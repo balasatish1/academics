@@ -1,4 +1,3 @@
-import java.lang.*;
 
 class Student {
   private String name;
@@ -41,8 +40,8 @@ public class Tester {
     s.setAge(20);
     
     System.out.println("Name : " + s.getName());
-    System.out.println("Roll No : " + s.getRollNo);
-    System.out.println("Age : " + s.age);
+    System.out.println("Roll No : " + s.getRollNo());
+    System.out.println("Age : " + s.getAge());
   }
 }
 
