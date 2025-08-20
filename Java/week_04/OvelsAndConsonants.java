@@ -2,7 +2,7 @@
 public class OvelsAndConsonants {
   public static void main(String args[]) {
 
-    String[] stringArr = { "Apple", "Ball", "code", "Java" };
+    String[] stringArr = { "Apple", "Ball", "code", "Java", "arun", "nithin", "bala"};
     int[][] ovelsAndConsonents = new int[stringArr.length][2];
 
     for (int i = 0; i < stringArr.length; i++) {
