@@ -40,23 +40,22 @@ int main() {
 
     case 3:
       exit(0);
-      
+
     default:
       printf("Invalid choice. Please enter 1, 2, or 3.");
     }
   }
   return 0;
 }
-int wait(int s)
-{
-  return (--s);
+
+int wait(int s) {
+  return --s;
 }
-int signal(int s)
-{
-  return (++s);
+
+int signal(int s) {
+  return ++s;
 }
-void producer()
-{
+void producer() {
   mutex = wait(mutex);
   full = signal(full);
   empty = wait(empty);
@@ -65,9 +64,7 @@ void producer()
   mutex = signal(mutex);
 }
 
-void consumer()
-{
-
+void consumer() {
   mutex = wait(mutex);
   full = wait(full);
   empty = signal(empty);
