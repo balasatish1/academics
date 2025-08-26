@@ -1,3 +1,9 @@
+/*
+                  Week - 04 (Producer Consumer Problem)
+
+  Name: Malladi Bala Satish
+  Roll: 325103311L03
+*/
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -19,9 +25,8 @@ int main() {
   {
     printf("\nEnter your choice: ");
     scanf("%d", &n);
-
     switch (n) {
-
+      
     case 1:
       if ((mutex == 1) && (empty != 0)) {
         producer();
@@ -55,6 +60,7 @@ int wait(int s) {
 int signal(int s) {
   return ++s;
 }
+
 void producer() {
   mutex = wait(mutex);
   full = signal(full);
