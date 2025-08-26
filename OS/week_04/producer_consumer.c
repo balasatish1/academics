@@ -4,7 +4,7 @@
 int mutex = 1;
 int full = 0;
 int empty = 3;
-int x = 0;
+int item = 0;
 
 int wait(int);
 int signal(int);
@@ -59,8 +59,8 @@ void producer() {
   mutex = wait(mutex);
   full = signal(full);
   empty = wait(empty);
-  x++;
-  printf("\nProducer produces item %d", x);
+  item++;
+  printf("\nProducer produces item %d", item);
   mutex = signal(mutex);
 }
 
@@ -68,7 +68,7 @@ void consumer() {
   mutex = wait(mutex);
   full = wait(full);
   empty = signal(empty);
-  printf("\nConsumer consumes item %d", x);
-  x--;
+  printf("\nConsumer consumes item %d", item);
+  item--;
   mutex = signal(mutex);
 }
