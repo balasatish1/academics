@@ -11,40 +11,36 @@ int signal(int);
 void producer();
 void consumer();
 
-int main()
-{
-  int n;
-  printf("\n1. Producer\n2. Consumer\n3. Exit");
+int main() {
+  int n = 0;
+  printf("Producer Consumer Problem\n");
+  printf("1. Producer\n2. Consumer\n3. Exit");
   while (1)
   {
     printf("\nEnter your choice: ");
     scanf("%d", &n);
-    switch (n)
-    {
+
+    switch (n) {
+
     case 1:
-      if ((mutex == 1) && (empty != 0))
-      {
+      if ((mutex == 1) && (empty != 0)) {
         producer();
-      }
-      else
-      {
+      } else {
         printf("Buffer is full!!");
       }
       break;
-    case 2:
-      if ((mutex == 1) && (full != 0))
-      {
 
+    case 2:
+      if ((mutex == 1) && (full != 0)) {
         consumer();
-      }
-      else
-      {
+      } else {
         printf("Buffer is empty!!");
       }
       break;
+
     case 3:
       exit(0);
-      break;
+      
     default:
       printf("Invalid choice. Please enter 1, 2, or 3.");
     }
