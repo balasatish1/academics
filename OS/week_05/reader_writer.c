@@ -1,3 +1,9 @@
+/*
+              week - 05 (Reader Writer Problem)
+  Name: Malladi Bala Satish
+  Roll: 325103311L03
+*/
+
 #include <pthread.h>
 #include <semaphore.h>
 #include <stdio.h>
