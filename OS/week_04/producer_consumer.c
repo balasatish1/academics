@@ -1,8 +1,8 @@
 /*
                   Week - 04 (Producer Consumer Problem)
 
-  Name: Malladi Bala Satish
-  Roll: 325103311L03
+  Name: Denkada Nithin
+  Roll: 325103311L01
 */
 #include <stdio.h>
 #include <stdlib.h>

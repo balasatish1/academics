@@ -1,9 +1,21 @@
+/*
+
+                    OS LAB  week-02(priority scheduling)
+
+Name: Denkada Nithin
+Roll No: 325103311L01
+Branch / Year / Sem: IT / II year / III sem
+Academic Year: 2025 - 2026
+
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
 int main() {
     int i, j, n, temp;
-    int *process_number, *arrival_time, *burst_time, *waiting_time, *turn_around_time, *completion_time, *priority;
+    int *process_number, *arrival_time, *burst_time;
+    int *waiting_time, *turn_around_time, *completion_time, *priority;
     float total_waiting_time = 0, total_TAT = 0;
 
     printf("Enter number of processes: ");
@@ -64,7 +76,10 @@ int main() {
 
     printf("\nP\tPri\tAT\tBT\twaiting_time\tTAT");
     for (i = 0; i < n; i++) {
-        printf("\nP%d\t%d\t%d\t%d\t%d\t%d", process_number[i], priority[i], arrival_time[i], burst_time[i], waiting_time[i], turn_around_time[i]);
+        printf("\nP%d\t%d\t%d\t%d\t%d\t%d",
+            process_number[i], priority[i],
+            arrival_time[i], burst_time[i],
+            waiting_time[i], turn_around_time[i]);
         total_waiting_time += waiting_time[i];
         total_TAT += turn_around_time[i];
     }
