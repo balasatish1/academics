@@ -1,0 +1,9 @@
+to open a file use open()
+syntax:
+  open(filename, mode);
+
+  mode -> r, w etc...
+
+  content = file.read()          # Reads entire file as a single string
+  line = file.readline()         # Reads one line at a time
+  lines = file.readlines()       # Reads all lines into a list
